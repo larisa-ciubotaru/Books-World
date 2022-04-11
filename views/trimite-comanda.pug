@@ -1,0 +1,51 @@
+extends layout 
+include mixins/_detalii_carte
+include mixins/_footer
+
+block content 
+    each book in bookData
+        .container
+            .top-md-10.pt-md-3
+                .row
+                    .col-md-2
+                        img.img-carte.d-inline(src=`/images/${book.image}`, style='height: 200px')
+                    .col-md-4
+                        +detaliiCarte(book, user)        
+        
+                .mt-md-2
+                    p.fw-bold Adresa de livrare
+                    form(action="" method="POST")
+                        .row
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='nume' name='nume' placeholder='nume' required)
+                                label.ps-4(for='nume') Nume
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='prenume' name='prenume' placeholder='prenume' required)
+                                label.ps-4(for='prenume') Prenume
+                        .row
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='strada' name='strada' placeholder='strada' required)
+                                label.ps-4(for='strada') Strad&abreve;
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='numar' name='numar' placeholder='numar' required)
+                                label.ps-4(for='numar') Num&abreve;r
+                        .row
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='blapsc' name='blapsc' placeholder='Bl.ap.sc.' required)
+                                label.ps-4(for='blapsc') Bl.ap.sc.
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='cod' name='cod' placeholder='Cod postal' required)
+                                label.ps-4(for='cod') Cod po&#x219;tal
+                        .row
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='judet' name='judet' placeholder='judet' required)
+                                label.ps-4(for='judet') Jude&#x21B;
+                            .col.form-floating.mb-3
+                                input.form-control(type='text' id='oras' name='oras' placeholder='oras' required)
+                                label.ps-4(for='oras') Ora&#x219;
+                        .form-floating.mb-3
+                            input.form-control(type='text' id='telefon' name='telefon' placeholder='telefon' required)
+                            label(for='telefon') Telefon
+                        .d-flex.justify-content-center
+                            button.btn.btn-danger(type="submit") Trimite comanda
+    +footer()

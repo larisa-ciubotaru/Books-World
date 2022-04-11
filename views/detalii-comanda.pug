@@ -1,0 +1,89 @@
+extends layout 
+include mixins/_detalii_carte
+include mixins/_footer
+
+block content 
+    each comanda1 in comanda
+        .container.top-md-10   
+            each book in comanda1.book_data
+                img.img-carte.d-inline(src=`/images/${book.image}`, style='height: 200px')
+                p(class='h1 h2-md fw-bold mb-0')= book.titlu
+                p(class='m-0')= book.autor
+                if book.pret!=null
+                    p(class='m-0 text-rosu fw-bold h4 mb-1')= book.pret  +' lei'
+            .card-editare.p-2.py-md-0.mb-2
+                if(comanda1.user_id == userId)    
+                    p.fw-bold Proprietar
+                else    
+                    p.fw-bold Utilizator
+                .d-flex
+                    img.avatar-mic.rounded-circle(src='../images/avatar-1577909_960_720.png')
+                    .ms-3
+                        if(comanda1.user_id == userId)
+                            each user in comanda1.proprietar_data
+                                p(class="fw-bold mb-0")= user.first_name + ' ' + user.surname
+                                p.d-inline.me-3= user.noExchangedBooks + ' cărți schimbate'
+                                p.d-inline= user.noSoldBooks + ' cărți vândute'
+                        else 
+                            each user in comanda1.user_data
+                                p(class="fw-bold mb-0")= user.first_name + ' ' + user.surname
+                                p.d-inline.me-3= user.noExchangedBooks + ' cărți schimbate'
+                                p.d-inline= user.noSoldBooks + ' cărți vândute'
+                
+                .card-editare.p-2.mb-2
+                    p.fw-bold Adresa de livrare
+                    .row
+                        .col
+                            p.d-inline.fw-bold Nume: 
+                            p.d-inline= comanda1.nume
+                        .col
+                            p.d-inline.fw-bold Prenume: 
+                            p.d-inline= comanda1.prenume
+                    .row
+                        .col
+                            p.d-inline.fw-bold Strada:
+                            p.d-inline= comanda1.strada
+                        .col
+                            p.d-inline.fw-bold Număr:
+                            p.d-inline= comanda1.numar
+                    .row
+                        .col
+                            p.d-inline.fw-bold Bl.ap.sc.:
+                            p.d-inline= comanda1.blapsc
+                        .col
+                            p.d-inline.fw-bold Cod poștal:
+                            p.d-inline= comanda1.cod_postal
+                    .row
+                        .col
+                            p.d-inline.fw-bold Județ:
+                            p.d-inline= comanda1.judet
+                        .col
+                            p.d-inline.fw-bold Oraș:
+                            p.d-inline= comanda1.oras
+                    p.d-inline.fw-bold Telefon: 
+                    p.d-inline= comanda1.telefon 
+                    
+            if(comanda1.user_id == userId)
+                if(comanda1.status == "comanda-acceptata")
+                    .text-center
+                        button.btn.btn-danger( id='confirmare' name='status' onclick='confirmare ()') Confirmă primirea cărții
+                else
+                    if(comanda1.status != "comanda-primita")
+                        .text-center
+                            button.btn.btn-secondary.disabled( id='asteptare' name='status' value='asteptare') Cerere în așteptare
+                    else
+                        .text-center 
+                            button.btn.btn-secondary.disabled( id='asteptare' name='status' value='asteptare') Carte primită
+            else
+                if(comanda1.status == "comanda-plasata")
+                    .text-center
+                        button.btn.btn-danger( id='acceptat' name='status' onclick='accepta ()') Acceptă cererea
+                        form(action=`/comenzile-mele/delete/${comandaId}` method="POST")
+                            button.btn.btn-dark.my-3(type='submit' id='respins' name='status') Șterge cererea
+                else 
+                    if(comanda1.status != "comanda-primita")
+                        .text-center
+                            button.btn.btn-secondary.disabled Așteaptă primirea cărții
+                    else
+                        button.btn.btn-secondary.disabled( id='asteptare' name='status' value='asteptare') Carte primită
+    +footer()

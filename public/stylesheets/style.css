@@ -1,0 +1,267 @@
+/*dimensionare logo*/
+.logo {
+  width: 170px;
+  height: 45px;
+} 
+
+/*setare font*/
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/*in pagina principala setam elementele care vin peste imaginea de background*/
+.peste-imagine{
+  position: absolute;
+  top: 20%;
+  color: white;
+  
+}
+
+.motto{
+  font-family: 'Rakkas', cursive;
+  font-size: 2.5rem;
+  color: #EB100C;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+}
+
+.btn-danger{
+  background-color: #EB100C;
+}
+
+.carte a{
+  font-size: .9rem;
+}
+
+.text-rosu {
+  color: #EB100C;
+}
+
+#pret-box{
+  display: none;
+}
+
+.pret-partea-reala {
+  font-size: .7rem;
+  vertical-align: top;
+}
+
+.padding-img-2 {
+  padding-top: 4.97px;
+  padding-bottom: 4.97px;
+}
+
+.circle {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  position: relative;
+  left: 14px;
+  bottom: 4px;
+}
+.circle1 {
+  background-color: #F7E2E2;
+}
+
+.circle2 {
+  background-color: #F7D6D6;
+}
+
+.circle3 {
+  background-color: #F7CBCB;
+}
+
+.circle4 {
+  background-color: #E16866;
+}
+
+.circle5 {
+  background-color: #E83F3C;
+}
+
+.circle6 {
+  background-color: #EB100C;
+}
+
+.pozitie-numar {
+  top: 1rem
+}
+
+.card-formular{
+  width: 100%;
+  margin: auto;
+}  
+
+.center-formular {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-conecteaza{
+  width: 70%;
+  margin: auto; 
+} 
+
+.formular-adauga-carte {
+  width: 100%;
+}
+
+#nav-link-selected {
+  color: white;
+}
+
+/*cardul cu informatii*/
+.card-editare {
+  background-color: #EFEFEF;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.avatar-mic {
+  width: 70px;
+  height: 70px;
+}
+
+.avatar-mediu {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-pencil-square {
+  margin-top: 7rem;
+  height: 60px;
+  color: #F58886;
+}
+
+.top-10 {
+  margin-top: 80px;
+}
+
+.img-carte {
+  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-link {
+  color: black;
+}
+
+.page-item.active .page-link {
+  
+  background-color: black;
+  border-color: black;
+}
+
+.border-danger {
+  color: #EB100C;
+}
+
+.nota-reating {
+  font-size: 4rem;
+  color: #EB100C;
+}
+
+.carte-proces-final {
+  height: 150px;
+}
+
+#message {
+  color: #EB100C;
+}
+
+.comanda-primita {
+  background-color: #F7D6D6;
+}
+
+.comanda-container {
+  margin: auto;
+}
+
+@media(min-width: 576px) {
+  .card-formular{
+      width: 90%;
+      margin: auto;
+      background-color: white;
+      border-radius: 30px;
+  } 
+}
+
+/* motto font-size vw bigger than the md*/
+@media(min-width: 768px) {
+  .motto {
+      font-size: 3.5rem;
+  }
+
+  .top-md-10 {
+      margin-top: 80px;
+  }
+
+  .pret-partea-reala {
+      font-size: .9rem;
+      vertical-align: top;
+  }
+
+  .card-formular{
+      width: 70%;
+  }
+
+  .padding-img-2 {
+      padding-top: 7.875px;
+      padding-bottom: 7.875px;
+  }
+}
+
+@media(min-width: 640px) and (max-width: 992px) {
+  .avatar {
+      width: 150px;
+      height: 150px;
+  }
+
+  .btn-pencil-square {
+      margin-top: 9rem;
+  }
+
+}
+
+@media(min-width: 992px) {
+  .avatar {
+      width: 150px;
+      height: 150px;
+  }
+
+  .btn-pencil-square {
+      margin-top: 9rem;
+  }
+
+  .descriere {
+      width: 50%;
+  }
+
+  .formular {
+      width: 50%;
+  }
+
+  .card-formular{
+      width: 50%;
+  }
+
+  .padding-img-2 {
+      padding-top: 10.985px;
+      padding-bottom: 10.985px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1171px){
+  li{
+      font-size: 0.8rem;
+  }
+}

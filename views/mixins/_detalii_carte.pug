@@ -1,0 +1,42 @@
+mixin detaliiCarte(book, user)
+    
+    p(class='h1 h2-md fw-bold mb-0')= book.titlu
+    p(class='m-0')= book.autor
+    if book.pret!=null
+        p(class='m-0 text-rosu fw-bold h4 mb-1')= book.pret  +' lei'
+    if url.startsWith('/carti')
+        .row.mb-2
+            each proprietar in userData 
+                if proprietar._id != userId
+                    if(book.schimb_vanzare == "vanzare")
+                        a.btn.btn-danger.rounded-pill.my-1.px-4(href=`/proces/${book._id}`) Cumpără
+                    else
+                        if(user.credit === 0)
+                            button.btn.btn-dark.rounded-pill.my-1.px-4.disabled Nu ai suficient credit
+                        else
+                            a.btn.btn-dark.rounded-pill.my-1.px-4(href=`/proces/${book._id}`) Schimbă
+        .card-editare.p-2.py-md-0.mb-2
+            p.fw-bold Editura
+            p(class='mb-0')= book.editura
+        .card-editare.p-2.py-md-0.mb-2
+            p.fw-bold Genul
+            p(class='mb-0')= book.genul
+        .card-editare.p-2.py-md-0.mb-2
+            p.fw-bold Tip copertă
+            p(class='mb-0')= book.coperta
+        .card-editare.p-2.py-md-0.mb-2
+            p.fw-bold Condiție
+            p(class='mb-0')= book.conditie
+        .card-editare.p-2.py-md-0.mb-2
+            p.fw-bold Urme de uzură
+            p(class='mb-0')= book.urme_uzura
+    
+    .card-editare.p-2.py-md-0.mb-2
+        p.fw-bold Proprietar
+        .d-flex
+            img.avatar-mic.rounded-circle(src='../images/avatar-1577909_960_720.png')
+            .ms-3
+                each proprietar in userData
+                    p(class="fw-bold mb-0")= proprietar.first_name + ' ' + proprietar.surname
+                    p.d-inline.me-3= proprietar.noExchangedBooks + ' cărți schimbate'
+                    p.d-inline= proprietar.noSoldBooks + ' cărți vândute'

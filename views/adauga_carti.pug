@@ -1,0 +1,54 @@
+extends layout 
+include mixins/_footer
+
+block content 
+    main
+        .container.top-10
+            p.h3.fw-bold Adaug&abreve; o carte
+            .d-flex.justify-content-center
+                form(action="" method="POST" class="formular")
+                    .form-floating.mb-3
+                        input.form-control(type='text' name='titlu' id='titlu' placeholder="Titlu" required)
+                        label(for='titlu') Titlu
+                    .form-floating.mb-3
+                        input.form-control(type='text' name='autor' id='autor' placeholder="Autor" required)
+                        label(for='autor') Autor
+                    .form-floating.mb-3
+                        input.form-control(type='text' name='editura' id='editura' placeholder="Editura" required)
+                        label(for='editura') Editura
+                    .form-floating.mb-3
+                        input.form-control(type='text' name='genul' id='genul' placeholder="Genul" required)
+                        label(for='genul') Genul
+                    .form-floating.mb-3
+                        select.form-select(name='coperta' id='coperta' aria-label='Floating label select example' required)
+                            option(selected='') -
+                            option(value='Cartonată') Cartonat&abreve;
+                            option(value='Broșată') Bro&#x219;at&abreve;
+                        label(for='coperta') Tip copert&abreve;
+                    .form-floating.mb-3
+                        select.form-select(name='conditie' id='conditie' aria-label='Floating label select example' required)
+                            option(selected='') -
+                            option(value='Utilizată') Utilizat&abreve;
+                            option(value='Nouă') Nou&abreve;
+                        label(for='conditie') Conditia
+                    .form-floating.mb-3
+                        input.form-control(type='text' name='urme_uzura' id='urme_uzura' placeholder="Urme uzura" required)
+                        label(for='urme_uzura') Ce urme de uzur&abreve; prezint&abreve; cartea?
+                    .border.mb-2.p-2
+                        .form-check
+                            input.form-check-input(type='radio' name='schimb_vanzare' id='schimb' value="schimb" onchange="carteSchimbCheck ()")
+                            label.form-check-label(for='schimb_vanzare')
+                                | Carte pentru schimb
+                        .form-check
+                            input.form-check-input(type='radio' name='schimb_vanzare' id='vanzare' value="vanzare" onchange="carteVanzareCheck ()")
+                            label.form-check-label(for='schimb_vanzare')
+                                | Carte de v&acirc;nzare
+                    .form-floating.mb-3#pret-box
+                        input.form-control(type='text' name='pret' id='pret' placeholder="Pret")
+                        label(for='editura') Preț
+                    .border.mb-3.p-2
+                        p Adaug&abreve; o poză reală cu cartea
+                        input(type='file' name="image" id="image" multiple='multiple' accept='image/heic, image/png, image/jpeg, image/webp')
+                    .text-center(href='')
+                        button.btn.btn-dark.rounded-pill.px-5(type='submit') Adaug&abreve; cartea
+    +footer()

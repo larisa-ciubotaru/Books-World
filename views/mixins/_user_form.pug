@@ -1,0 +1,25 @@
+mixin userForm(errors)
+
+    form(action="" method="POST" class="form-conecteaza")
+                p.h1.fw-bold.mb-4 CREAZ&Abreve; CONT
+                if errors 
+                    ul 
+                        for error in errors 
+                            p.h5.text-rosu.my-0= error.msg
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='text' name="first_name" id="first_name" placeholder='Nume' required)
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='text' name="surname" id="surname" placeholder='Prenume' required)
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='email' name="email" id="email" placeholder='Email' required)
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='email' name="confirm_email" id="confirm_email" placeholder='Confirmă email' required)
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='password' name="password" id="password" placeholder='Parola' required)
+                .mb-3
+                    input.form-control.rounded-pill.py-2(type='password' name="confirm_password" id="confirm_password" placeholder='Confirmă parola' required)
+                .row
+                    button(type="submit" class="btn btn-danger my-3 py-2") Creaz&abreve; cont
+                .row
+                    p.col Ai deja un cont?
+                    a.col.link-danger(href='conecteaza-te') Conecteaz&abreve;-te

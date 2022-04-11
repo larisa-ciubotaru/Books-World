@@ -1,0 +1,96 @@
+extends layout 
+include mixins/_footer_fixed
+
+block content 
+    .container.top-10
+        p.btn.btn-secondary.w-100.my-2 Comenzile mele
+    div(style='background-color: #EFEFEF;')
+        .row.ps-3 
+            .col-md
+                p.h5.fw-bold Comenzi date 
+                .row 
+                    .col 
+                        p.fw-bold Data
+                    .col
+                        p.fw-bold Metoda
+                    .col
+                        p.fw-bold Proprietar
+                    .col
+                        p.fw-bold Status
+                    .col
+                        p.invisible Detalii
+                each comanda in comenziDate
+                    if comanda.status == "comanda-acceptata"
+                        .row.comanda-primita.pt-2.mb-2.text-danger
+                            .col
+                                p= String(comanda.date).substr(4, 11)
+                            .col  
+                                each book in comanda.book_data
+                                    -if(book.schimb_vanzare == 'vanzare')
+                                        p cumpărat
+                                    -else   
+                                        p= book.schimb_vanzare
+                            .col
+                                each proprietar in comanda.proprietar_data
+                                    p= proprietar.first_name + ' ' + proprietar.surname
+                            .col
+                                p= comanda.status
+                            .col
+                                a.btn.btn-danger.rounded-pill.w-50(href=`/comenzile-mele/${comanda._id}`) Detalii
+                    else 
+                       .row
+                            .col
+                                p= String(comanda.date).substr(4, 11)
+                            .col
+                                each book in comanda.book_data
+                                    p= book.schimb_vanzare
+                            .col
+                                each user in comanda.proprietar_data
+                                    p= user.first_name + ' ' + user.surname
+                            .col
+                                p= comanda.status
+                            .col
+                                a.btn.btn-danger.rounded-pill.w-50(href=`/comenzile-mele/${comanda._id}`) Detalii 
+            .col-md
+                p.h5.fw-bold Comenzi primite
+                .row 
+                    .col 
+                        p.fw-bold Data
+                    .col
+                        p.fw-bold Metoda
+                    .col
+                        p.fw-bold Utilizator
+                    .col
+                        p.fw-bold Status
+                    .col
+                        p.invisible Detalii
+                each comanda in comenziPrimite
+                    if comanda.status == "comanda-plasata"
+                        .row.comanda-primita.pt-2.mb-2.text-danger
+                            .col
+                                p= String(comanda.date).substr(4, 11)
+                            .col
+                                each book in comanda.book_data
+                                    p= book.schimb_vanzare
+                            .col
+                                each user in comanda.user_data
+                                    p= user.first_name + ' ' + user.surname
+                            .col 
+                                p= comanda.status
+                            .col
+                                a.btn.btn-danger.rounded-pill.w-50(href=`/comenzile-mele/${comanda._id}`) Detalii
+                    else 
+                       .row
+                            .col
+                                p= String(comanda.date).substr(4, 11)
+                            .col
+                                each book in comanda.book_data
+                                    p= book.schimb_vanzare
+                            .col
+                                each user in comanda.user_data
+                                    p= user.first_name + ' ' + user.surname
+                            .col
+                                p= comanda.status
+                            .col
+                                a.btn.btn-danger.rounded-pill.w-50(href=`/comenzile-mele/${comanda._id}`) Detalii 
+    +footerFixedBottom()

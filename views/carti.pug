@@ -1,0 +1,26 @@
+extends layout 
+include mixins/_book
+include mixins/_filtru_collapse
+include mixins/_filtru
+include mixins/_dropdown_selector
+include mixins/_footer
+
+block content
+    main.container
+        .container-fluid
+            // Filtru collapse
+            //+filtruCollapse()
+
+            .row.mx-0.px-0.container-fluid.top-10
+                //Filtru
+                //+filtru() 
+ 
+                .col-md-12
+                    +dropdownSelector()
+                    .row.d-flex.mt-3.ms-4.text-center
+                        each carte in toateCartile
+                            -if(carte.comanda_data == 0)
+                                +book(carte)
+    +footer()
+    
+    

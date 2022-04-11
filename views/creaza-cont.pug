@@ -1,0 +1,7 @@
+extends layout 
+include mixins/_user_form
+block content
+    main.vh-100
+        img.d-none.d-sm-block.w-100.vh-100.position-relative(src='../images/sincerely-media--IIIr1Hu6aY-unsplash.jpg')
+        .card-formular.center-formular.pt-5.pb-3
+            +userForm(errors)

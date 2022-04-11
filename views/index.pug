@@ -1,0 +1,149 @@
+extends layout
+include mixins/_book
+include mixins/_footer
+
+block content
+  img.w-100.vh-100.position-relative(src='../images/pozaBackground.jpg')
+  .container-lg
+    .mx-1.peste-imagine
+      p.h1.motto.mb-4.mb-md-5
+        | Un singur loc unde îți poți vinde
+        br
+        |  sau schimba cărțile
+      p.first-page-text.pt-3
+        | Nu mai ai nevoie de cărțile de pe raftul tău?
+        br
+        | Cineva s-ar putea să și le dorească. Vinde sau schimbă cărțile 
+        span.fw-bold.text-rosu ușor
+        |  la prețul ales de tine!
+      if !user
+        a.btn.btn-danger.rounded-pill.mb-5.px-5(href='/creaza-cont') Crează-ți cont
+      .row.my-5
+        .col-3.text-center
+          p.h1= numberOfUsers
+          p Utilizatori
+        .col-5.text-center
+          p.h1= numberOfExchangeBooks
+          p Cărți pentru schimb
+        .col-4.text-center
+          p.h1= numberOfSellBooks
+          p Cărți de vânzare
+
+
+    if user
+      //Carti recent adaugate starts
+      .text-center
+        p.h2.mt-4.fw-bold C&abreve;r&#x21B;i recent ad&abreve;ugate
+          .row.d-flex.justify-content-center.mt-3
+            each carte in toateCartile 
+              +book(carte)  
+        a.h5.nav-link.text-rosu(href='/carti-cele-mai-noi') Vezi toate cărțile
+      //Carti recent adaugate ends
+
+    .text-center
+      p.my-5.fw-bold
+        | Ți-ai dorit vreo dată o platformă pentru a putea vinde sau schimba cărțile pe care nu ți le mai doresti?
+        br
+        | Aici este locul unde o poți face!
+      .row
+        .col-sm
+          div
+            img.w-50(src='../images/undraw_book_lover_mkck (1).png')
+            div
+              p
+                | Oferă spre schimb cărțile care stau pe raftul tău și ai ocazia să îți crești numărul de cărți citite.
+              if user
+                a.btn.btn-danger.rounded-pill.px-4(href='/adauga-carti') Schimbă cărți
+              else 
+                a.btn.btn-danger.rounded-pill.px-4(href='/conecteaza-te') Schimbă cărți
+        .col-sm.mt-5.mt-sm-0
+          img.w-50.padding-img-2(src='../images/undraw_Bibliophile_hwqc.png')
+          div
+            p
+              | Vinde cărțile pe care nu ți le mai dorești iar banii câștigați alege să îi investești în altele noi.
+            if user
+              a.btn.btn-dark.rounded-pill.px-5(href='/adauga-carti') Vinde cărți
+            else 
+              a.btn.btn-dark.rounded-pill.px-5(href='/conecteaza-te') Vinde cărți
+    .text-center
+      p.h2.mt-5.fw-bold Cum schimi o carte?
+      .row.my-3.d-flex.justify-content-center
+        .card.text-dark.bg-light.mb-3.mx-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle1
+            h2.position-absolute.pozitie-numar 01
+          .card-body
+            p.card-text
+              | Postează cărțile pe care ai vrea să le schimbi cu alți utilizatori. Primești 1 credit după ce vei adăuga 4 cărți pentru a putea solicita o carte de la un alt utilizator.
+        .card.text-dark.bg-light.mb-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle2
+            h2.position-absolute.pozitie-numar 02
+          .card-body
+            p.card-text
+              | Odată ce ați primit o solicitare pentru o carte, trimiteți-o prin poștă sau curier utilizatorului.
+        .card.text-dark.bg-light.mb-3.mx-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle3
+            h2.position-absolute.pozitie-numar 03
+          .card-body
+            p.card-text
+              | Pentru fiecare carte trimisă veți primi 1 credit și puteți alege din 
+              span.fw-bold.text-rosu= numberOfExchangeBooks
+              |  de cărți disponibile!
+              br
+              br
+              br
+      p
+        |Costurile de transport pentru cărțile pe care le trimiteți vor fi suportate de cel care primește cartea.
+        br
+        | Cărțile pe care le solicitați sunt ale dvs. de păstrat sau pentru a fi schimbate din nou!
+      if user
+        a.btn.btn-danger.rounded-pill.px-4(href='/adauga-carti') Schimbă cărți
+      else 
+        a.btn.btn-danger.rounded-pill.px-4(href='/conecteaza-te') Schimbă cărți
+    .text-center
+      h2.h2.mt-5.fw-bold Cum vinzi o carte?
+      .row.my-3.d-flex.justify-content-center
+        .card.text-light.bg-dark.mb-3.mx-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle4
+            h2.position-absolute.pozitie-numar 01
+          .card-body
+            p.card-text
+              | Postează cărțile pe care ai vrea să le vinzi.
+              br
+              br
+              br
+        .card.text-light.bg-dark.mb-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle5
+            h2.position-absolute.pozitie-numar 02
+          .card-body
+            p.card-text
+              | Odată ce ați primit o solicitare pentru o carte, trimiteți-o prin poștă sau curier utilizatorului.
+              br
+              br
+              br
+        .card.text-light.bg-dark.mb-3.mx-3(style='max-width: 18rem;')
+          .card-header.mt-2
+            .circle.circle6
+            h2.position-absolute.pozitie-numar 03
+          .card-body
+            p.card-text
+              | Cu banii primiți din vânzarea cărții vă puteți alege din 
+              span.fw-bold.text-rosu= numberOfSellBooks
+              |  de cărți disponibile!
+              br
+              br
+              br
+      p
+        | Plata cărților se va face ramburs de către cumpărător.
+        br
+        | Costurile de transport pentru cărțile pe care le trimiteți vor fi suportate de către cel care cumpără cartea.
+      if user
+        a.btn.btn-dark.rounded-pill.px-5(href='/adauga-carti') Vinde cărți
+      else 
+        a.btn.btn-dark.rounded-pill.px-5(href='/conecteaza-te') Vinde cărți
+  +footer()
+  

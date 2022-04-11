@@ -1,0 +1,64 @@
+extends layout 
+
+block content 
+    .container
+        .d-flex.justify-content-center
+            .formular
+                .d-flex.justify-content-center
+                    img.avatar.rounded-circle(src='https://static-25.sinclairstoryline.com/resources/media/3f1ef009-5f3d-4be8-6f0e-6ab0862f00b5-largeScale_KendallBartley2020_webphoto320x4201.png?1603404656511')
+                .form-floating.mb-3
+                    input#floatingInput.form-control(type='email' placeholder='name@example.com' value='anca.bfef@gmail.com')
+                    label(for='floatingInput') E-mail
+                .form-floating.mb-3
+                    input#floatingInput.form-control(type='password' placeholder='parola' value='•••••••••••')
+                    label(for='floatingInput') Parola
+                .form-floating.mb-3
+                    input#floatingInput.form-control(type='text' placeholder='Ana Popescu' value='Anca Popa')
+                    label(for='floatingInput') Nume
+                .form-floating.mb-3
+                    textarea#floatingTextarea2.form-control(placeholder='Adaugă o descriere' style='height: 140px')
+                        | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam iure dolorum recusandae doloremqu explicabo. Eos illo alias explicabo corrupti saepe sequi, nihil ea neque non magnam asperiores hic. Quia, nesciunt?
+                    label(for='floatingTextarea2') Descriere
+                .border.mb-3.p-2
+                    p.fw-bold Adresa de livrare
+                    .row
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='Popescu' value='Popa')
+                            label(for='floatingInput') Nume
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='Ana' value='Anca')
+                            label(for='floatingInput') Prenume
+                    .row
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='Strada' value='')
+                            label(for='floatingInput') Strad&abreve;
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='numar' value='')
+                            label(for='floatingInput') Num&abreve;r
+                    .row
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='Bl.ap.sc.' value='')
+                            label(for='floatingInput') Bl.ap.sc.
+                        .col.form-floating.mb-3
+                            input#floatingInput.form-control(type='text' placeholder='Cod postal' value='')
+                            label(for='floatingInput') Cod po&#x219;tal
+                    .row
+                        .col.form-floating.mb-3
+                            select#floatingSelectGrid.form-select(aria-label='Floating label select example')
+                                option(selected='')
+                                option(value='1') One
+                                option(value='2') Two
+                                option(value='3') Three
+                            label(for='floatingSelectGrid') Jude&#x21B;
+                        .col.form-floating.mb-3
+                            select#floatingSelectGrid.form-select(aria-label='Floating label select example')
+                                option(selected='')
+                                option(value='1') One
+                                option(value='2') Two
+                                option(value='3') Three
+                            label(for='floatingSelectGrid') Ora&#x219;
+                    .form-floating.mb-3
+                        input#floatingInput.form-control(type='text' placeholder='telefon' value='')
+                        label(for='floatingInput') Telefon
+                    .d-flex.justify-content-center
+                        button.btn.btn-danger(type='button') Salveaz&abreve; datele

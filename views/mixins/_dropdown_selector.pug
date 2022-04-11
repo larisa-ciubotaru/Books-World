@@ -1,0 +1,38 @@
+mixin dropdownSelector()
+    .dropdown.mb-3
+        if url === '/carti-cele-mai-noi'
+            button.btn.btn-dark.dropdown-toggle.w-100(type='button' data-bs-toggle='dropdown' aria-expanded='false') Cele mai noi
+            ul.dropdown-menu.w-100
+                li
+                    a.dropdown-item(href='carti-cele-mai-vechi') Cele mai vechi
+                li
+                    a.dropdown-item(href='carti-a-crescator') Alfabetic cresc&abreve;tor
+                li
+                    a.dropdown-item(href='carti-a-descrescator') Alfabetic descresc&abreve;tor
+        if url === '/carti-cele-mai-vechi'
+            button.btn.btn-dark.dropdown-toggle.w-100(type='button' data-bs-toggle='dropdown' aria-expanded='false') Cele mai vechi
+            ul.dropdown-menu.w-100
+                li
+                    a.dropdown-item(href='carti-cele-mai-noi') Cele mai noi
+                li
+                    a.dropdown-item(href='carti-a-crescator') Alfabetic cresc&abreve;tor
+                li
+                    a.dropdown-item(href='carti-a-descrescator') Alfabetic descresc&abreve;tor
+        if url === '/carti-a-crescator'
+            button.btn.btn-dark.dropdown-toggle.w-100(type='button' data-bs-toggle='dropdown' aria-expanded='false') Alfabetic cresc&abreve;tor
+            ul.dropdown-menu.w-100
+                li
+                    a.dropdown-item(href='carti-cele-mai-noi') Cele mai noi
+                li
+                    a.dropdown-item(href='carti-cele-mai-vechi') Cele mai vechi
+                li
+                    a.dropdown-item(href='carti-a-descrescator') Alfabetic descresc&abreve;tor
+        if url === '/carti-a-descrescator'
+            button.btn.btn-dark.dropdown-toggle.w-100(type='button' data-bs-toggle='dropdown' aria-expanded='false') Alfabetic descresc&abreve;tor
+            ul.dropdown-menu.w-100
+                li
+                    a.dropdown-item(href='carti-cele-mai-noi') Cele mai noi
+                li
+                    a.dropdown-item(href='carti-cele-mai-vechi') Cele mai vechi
+                li
+                    a.dropdown-item(href='carti-a-crescator') Alfabetic cresc&abreve;tor

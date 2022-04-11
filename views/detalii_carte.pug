@@ -1,0 +1,15 @@
+extends layout 
+include mixins/_detalii_carte
+include mixins/_footer
+
+block content 
+    each book in bookData
+        .container
+            .row
+                .col-md-6.top-md-10.pt-md-3
+                    img.img-carte(src=`/images/${book.image}`)
+                            
+                .col-md-6.top-md-10
+                    +detaliiCarte(book, user)
+    +footer()
+    

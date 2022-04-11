@@ -1,0 +1,18 @@
+mixin book(carte) 
+    
+    .card.me-3.mb-3(style='width: 10rem;')
+        img.card-img-top(src=`/images/${carte.image}` style='height: 180px;')
+        .card-body
+            if( url != '/contul-meu')
+                if(carte.schimb_vanzare == "vanzare")
+                    a.btn.btn-danger.rounded-pill.my-1.px-4(href=`/carti/${carte._id}`) Cumpără
+                else 
+                    a.btn.btn-dark.rounded-pill.my-1.px-4(href=`/carti/${carte._id}`) Schimbă
+            else
+                a.btn.btn-danger.rounded-pill.my-1.px-4(href=`/carti/${carte._id}`) Detalii 
+            p(class="card-text m-0")= carte.autor
+            p(class="card-text fw-bold m-0")= carte.titlu
+            if(carte.pret) 
+                p(class="m-0 text-rosu fw-bold")= carte.pret + " lei"
+                    
+        

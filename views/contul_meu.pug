@@ -1,0 +1,80 @@
+extends layout 
+include mixins/_book
+include mixins/_footer
+
+block content 
+    main
+        .container.top-10
+            .mb-2
+            // Date utilizator
+            .d-flex
+                img.avatar-mediu.rounded-circle(src='../images/avatar-1577909_960_720.png')
+                .ms-4
+                    p(class="fw-bold mb-0")= user.first_name + ' ' + user.surname
+                    div
+                        p.d-inline.me-3= user.noExchangedBooks + ' cărți schimbate'
+                        p.d-inline= user.noSoldBooks + ' cărți vândute'
+            
+                    p.d-inline-flex.border.border-danger.rounded-pill.px-3='credit ' + user.credit
+            
+            p.btn.btn-secondary.w-100.my-2 Cărțile mele
+            if(numberOfAllBooks == 0)
+                .text-center.my-5
+                    p.h2 Nu ai nici o carte adaugat&abreve;
+                    p Pentru a primi un credit trebuie adăugate 4 cărți pentru schimb
+                    a.btn.btn-danger.rounded-pill.px-4(href='/adauga-carti') Adaug&abreve; o carte
+            else
+                .text-center.my-5 
+                    if(nrOfSchimbBooks < 4)
+                        p= `Mai adauga ${4 - nrOfSchimbBooks} carti de schimb pentru a primi un credit`
+                    if(nrOfSchimbBooks == 0)
+                        p Pentru a primi un credit trebuie adăugate 4 cărți pentru schimb
+                    .row.d-flex.mt-3.ms-4.text-center
+                        each book in user_books
+                            +book(book)
+    +footer()
+            //- // Review
+            //- .mb-3
+            //-     .d-flex
+            //-         p.h5.fw-bold Review-uri
+            //-         p (0)
+            //-     .d-flex
+            //-         div
+            //-             p.fw-bold.nota-reating.mb-0 0.00
+            //-             .rating.d-inline
+            //-                 svg.bi.bi-star(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+            //-                     path(d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z')
+            //-                 svg.bi.bi-star(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+            //-                     path(d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z')
+            //-                 svg.bi.bi-star(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+            //-                     path(d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z')
+            //-                 svg.bi.bi-star(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+            //-                     path(d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z')
+            //-                 svg.bi.bi-star(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewbox='0 0 16 16')
+            //-                     path(d='M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z')
+            //-         .ms-5.w-50
+            //-             div
+            //-                 label.fw-bold 5 stele
+            //-                 .progress
+            //-                     .progress-bar.progress-bar-striped.bg-success(role='progressbar' style='width: 0%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            //-                     p (0)
+            //-             div
+            //-                 label.fw-bold 4 stele
+            //-                 .progress
+            //-                     .progress-bar.progress-bar-striped.bg-success(role='progressbar' style='width: 0%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            //-                     p (0)
+            //-             div
+            //-                 label.fw-bold 3 stele
+            //-                     .progress
+            //-                         .progress-bar.progress-bar-striped.bg-success(role='progressbar' style='width: 0%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            //-                         p (0)
+            //-             div
+            //-                 label.fw-bold 2 stele
+            //-                     .progress
+            //-                         .progress-bar.progress-bar-striped.bg-success(role='progressbar' style='width: 0%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            //-                         p (0)
+            //-             div
+            //-                 label.fw-bold 1 stele
+            //-                     .progress
+            //-                         .progress-bar.progress-bar-striped.bg-success(role='progressbar' style='width: 0%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100')
+            //-                         p (0)

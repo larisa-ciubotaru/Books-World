@@ -1,0 +1,43 @@
+mixin filtruCollapse()
+    .d-block.d-md-none.top-10
+        button.btn.btn-danger.w-100(type='button' data-bs-toggle='collapse' data-bs-target='#collapseExample' aria-expanded='false' aria-controls='collapseExample') Filtreaz&abreve;
+        form(action="" method="POST")
+            #collapseExample.collapse.p-2
+                p.fw-bold C&abreve;r&#x21B;i
+                .form-check
+                    input.form-check-input(type='radio' id='schimb' name='schimb/vanzare' value='schimb')
+                    label.form-check-label(for='schimb') Schimb
+                .form-check
+                    input.form-check-input(type='radio' id='vanzare' name='schimb/vanzare' value='vanzare')
+                    label.form-check-label(for='vanzare') V&acirc;nzare
+                
+                p.fw-bold Pre&#x21B;
+                .form-check
+                    input.form-check-input(type='radio' id='lessThen10' name='pret' value='lessThen10')
+                    label.form-check-label(for='lessThen10')= '< 10 lei'
+                .form-check
+                    input.form-check-input(type='radio' id='between10And30' name='pret' value='between10And30')
+                    label.form-check-label(for='between10And30') 10-30 lei
+                .form-check
+                    input.form-check-input(type='radio' id='between30And50' name='pret' value='between30And50')
+                    label.form-check-label(for='between30And50') 30-50 lei
+                .form-check
+                    input.form-check-input(type='radio' id='greaterThan50' name='pret' value='greaterThan50')
+                    label.form-check-label(for='greaterThan50')= '> 50 lei'
+            
+                p.fw-bold Tip copert&abreve;
+                .form-check
+                    input.form-check-input(type='radio' id='cartonata' name='coperta' value='cartonat')
+                    label.form-check-label(for='cartonata') Cartonat&abreve;
+                .form-check
+                    input.form-check-input(type='radio' id='brosata' name='coperta' value='brosata')
+                    label.form-check-label(for='brosata') Bro&#x219;at&abreve;
+                p.fw-bold Condiția
+                .form-check
+                    input.form-check-input(type='radio' id='utilizata' name='conditie' value='utilizata')
+                    label.form-check-label(for='utilizata') Utilizată
+                .form-check
+                    input.form-check-input(type='radio' id='noua' name='conditie' value='noua')
+                    label.form-check-label(for='noua') Nouă
+                    
+                button.btn.btn-dark.w-100.my-2(type='submit') Aplic&abreve; filtrele

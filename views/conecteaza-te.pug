@@ -1,0 +1,28 @@
+extends layout 
+
+block content
+    main.vh-100
+        img.w-100.vh-100.position-relative(src='../images/alfons-morales-YLSwjSy7stw-unsplash.jpg')
+        .card-formular.center-formular.pt-5.pb-3
+            form.form-conecteaza(action="/conecteaza-te" method="POST")
+                p.h1.fw-bold.mb-4 CONECTEAZ&Abreve;-TE
+                - const values  = Object.values(flash)
+                - const keys = Object.keys(flash)
+                if keys.length > 0
+                    div(class=`message message_${keys}`)
+                    p.h5.text-rosu= values
+                .my-4
+                    input.form-control.rounded-pill.py-2(type='email' name="email" id="email" placeholder='Email' required)
+                .mb-3
+                    input.form-control.rounded-pill.py-2(type='password' name="password" id="password" placeholder='Parola' required)
+                .row.mb-3
+                    //- .col
+                    //-     .form-check
+                    //-         input.form-check-input(type='checkbox')
+                    //-         label.form-check-label
+                    //-         | &#x21A;ine-m&abreve; minte
+                    //- a.col.text-end.link-danger(href='') &#x21A;i-ai uitat parola?
+                    button(type='submit' class="btn btn-danger my-3 py-2") Conectează-te
+                .row.text-center
+                    p.col Nu ai deja un cont?
+                    a.col.link-danger(href='/creaza-cont') Creaz&abreve; cont
